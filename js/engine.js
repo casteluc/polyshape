@@ -113,7 +113,7 @@ function incSpeed() {
 }
 
 function decSpeed() {
-    if (speed > 1) {
+    if (speed > 3) {
         speed -= 1
         dots.forEach( dot => {
             if (dot.speed.x > 0) {
