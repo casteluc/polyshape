@@ -42,7 +42,18 @@ function moveDots() {
         dot.pos.y += dot.speed.y
     })
     
+    checkCollision()
     drawDots()
+}
+
+function checkCollision() {
+    dots.forEach( dot => {
+        if (dot.pos.x >= canvas.width - 2 || dot.pos.x <= 0) {
+            dot.speed.x = dot.speed.x * -1
+        } else if (dot.pos.y >= canvas.height - 2 || dot.pos.y <= 0) {
+            dot.speed.y = dot.speed.y * -1
+        }
+    })
 }
 
 export {

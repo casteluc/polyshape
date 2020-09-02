@@ -3,8 +3,7 @@ function randomInt(min, max) {
     return min + Math.floor((max - min) * Math.random());
 }
 
-// TODO: implement logic that makes dot unable to move horizontaly or verticaly
-// TODO: implement logic that makes dot unable to be stationary
+// Function that returns a random number between -3 and 3 and != to 0 to use as dot speed
 function randomSpeed() {
     let speed = randomInt(-3, 3)
     while (true) {

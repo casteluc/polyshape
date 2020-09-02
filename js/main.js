@@ -11,7 +11,7 @@ function resizeCanvas() {
 // Declaring the main function
 function main() {
     resizeCanvas()
-    engine.createDots(10)
+    engine.createDots(100)
     engine.drawDots()
     setInterval(engine.moveDots, 50)
 }
