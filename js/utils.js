@@ -5,8 +5,15 @@ function randomInt(min, max) {
 
 // TODO: implement logic that makes dot unable to move horizontaly or verticaly
 // TODO: implement logic that makes dot unable to be stationary
-function randomSpeed() { 
-    return randomInt(-3, 3) 
+function randomSpeed() {
+    let speed = randomInt(-3, 3)
+    while (true) {
+        if (speed !== 0) {
+            return speed
+        } else {
+            speed = randomInt(-3, 3)
+        }
+    }
 }
 
 export {
