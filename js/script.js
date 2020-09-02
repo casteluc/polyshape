@@ -9,7 +9,6 @@ function createDots(n) {
     for (let i = 0; i < n; i++) {
         newDot = [randomInt(0, canvas.width), randomInt(0, canvas.height)]
         dots.push(newDot)
-        console.log(dots)
     }
 }
 
@@ -25,11 +24,13 @@ function drawDots() {
     })
 }
 
-function move() {
-    ctx.clearRect(dot[0], dot[1], 3, 3)
-    dot[0] += 1
-    console.log(dot)
-    draw(ctx)
+function moveDots() {
+    dots.forEach( dot => {
+        ctx.clearRect(dot[0], dot[1], 3, 3)
+        dot[0] += 1
+    })
+
+    drawDots()
 }
 
 function randomInt(min, max) {
@@ -39,7 +40,7 @@ function randomInt(min, max) {
 function main() {
     createDots(10)
     drawDots()
-    // setInterval(move, 50)
+    setInterval(moveDots, 50)
 }
 
 // Executes main function
