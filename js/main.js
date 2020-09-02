@@ -1,10 +1,12 @@
 import * as engine from './engine.js'
 
+// Getting the canvas element
 const canvas = document.getElementById("canvas")
 
 // Setting initital values for distance and speed
 var distance = 300
 
+// Adds events to the buttons
 document.getElementById("incSpeed").addEventListener("click", engine.incSpeed)
 document.getElementById("decSpeed").addEventListener("click", engine.decSpeed)
 document.getElementById("incDistance").addEventListener("click", engine.incDistance)
@@ -17,6 +19,8 @@ function resizeCanvas() {
     canvas.width = window.innerWidth - 5
 }
 
+// Function that will be executed in a loop, needed to render all
+// the components on the screen dinamically
 function timeLoop() {
     engine.drawDots()
     engine.drawLines(distance)
@@ -26,6 +30,7 @@ function timeLoop() {
 
 // Declaring the main function
 function main() {
+    // Canvas resize and first screen render
     resizeCanvas()
     engine.createDots(15)
     engine.drawDots()
@@ -36,5 +41,5 @@ function main() {
 }
 
 
-// Executes main function
+// Executes the main function
 main()

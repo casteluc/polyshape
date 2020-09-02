@@ -1,3 +1,4 @@
+// List of colors that the program will use
 const colors = [
     "#A8FF3E",
     "#F4FF61",
@@ -15,7 +16,7 @@ function randomInt(min, max) {
     return min + Math.floor((max - min) * Math.random());
 }
 
-// Function that returns a random number between -3 and 3 and != to 0 to use as dot speed
+// Function that returns a random number between s and -s, beeing != to 0 to use as dot speed
 function randomSpeed(s) {
     let speed = randomInt(s * -1, s)
     while (true) {
@@ -27,10 +28,12 @@ function randomSpeed(s) {
     }
 }
 
+// Returns a random color from the colors list
 function randomColor() {
     return colors[randomInt(0, colors.length)]
 }
 
+// Exporting functions
 export {
     randomInt,
     randomSpeed,

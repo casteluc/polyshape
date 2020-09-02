@@ -10,6 +10,8 @@ var speed = 3
 var minDistance = 300
 
 // Creates all the inital dots that will be rendered on canvas
+// Every dot has position, speed and a random color
+// Speed (x or y) can't be equals to 0
 function createDots(n) {
     for (let i = 0; i < n; i++) {
         let newDot = {
@@ -30,12 +32,12 @@ function createDots(n) {
     }
 }
 
-// Adds a new dot on the canvas
+// Adds a new dot where the user clicked
 function addDot(e) {
     let newDot = {
         pos: {
             x: e.pageX,
-            y: e.pageY - 50
+            y: e.pageY
         },
 
         speed: {
@@ -51,7 +53,10 @@ function addDot(e) {
 
 // Renders all the dots on the canvas
 function drawDots() {
+    // Clears the screen before rendering again
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    // Renders all the dots
     dots.forEach( dot => {
         ctx.fillStyle = dot.color
         ctx.fillRect(dot.pos.x, dot.pos.y, 3, 3)
@@ -65,6 +70,8 @@ function drawLines() {
             let xDistance = Math.abs(dot1.pos.x - dot2.pos.x)
             let yDistance = Math.abs(dot1.pos.y - dot2.pos.y)
             
+            // Checks if 2 dots distance is smaller than the minDistance
+            // If so, draws a line between the 2 dots
             if (xDistance <= minDistance && yDistance <= minDistance) {
                 ctx.beginPath()
                 ctx.moveTo(dot1.pos.x + 1, dot1.pos.y + 1)
@@ -79,7 +86,6 @@ function drawLines() {
 // Moves all the dots on canvas
 function moveDots() {
     dots.forEach( dot => {
-        /* ctx.clearRect(dot.pos.x, dot.pos.y, 3, 3) */
         dot.pos.x += dot.speed.x
         dot.pos.y += dot.speed.y
     })
@@ -96,8 +102,13 @@ function checkCollision() {
     })
 }
 
+// Increases all dots speed
 function incSpeed() {
+    // Increasing control variable
     speed += 1
+
+    // If the current dot speed (x and y) is negative, its value will be decreased
+    // and if it's positive, its value will be increased.
     dots.forEach( dot => {
         if (dot.speed.x > 0) {
             dot.speed.x += 1
@@ -113,9 +124,15 @@ function incSpeed() {
     })
 }
 
+// Decreases all dots speed
 function decSpeed() {
+    // Only decreases the speed if it's bigger than the mininum speed value
     if (speed > 3) {
+        // Decreasing control variable
         speed -= 1
+
+        // If the current dot speed (x and y) is negative, its value will be increased
+        // and if it's positive, its value will be decreased.
         dots.forEach( dot => {
             if (dot.speed.x > 0) {
                 dot.speed.x -= 1
@@ -132,18 +149,21 @@ function decSpeed() {
     }
 }
 
+// Increases the minDistance by 10
 function incDistance() {
     if (minDistance < 1200) {
         minDistance += 10
     }
 }
 
+// Decreases the minDistance by 10
 function decDistance() {
     if (minDistance > 10) {
         minDistance -= 10
     }
 }
 
+// Reset the whole canvas to its inital state
 function reset() {
     minDistance = 300
     speed = 3
@@ -152,6 +172,7 @@ function reset() {
     createDots(15)
 }
 
+// Exporting functions
 export {
     createDots,
     drawDots,
