@@ -2,11 +2,15 @@
 const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
 
-var dot = [10, 10]
+var dots = []
 
-function main() {
-    draw()
-    setInterval(move, 50)
+
+function createDots(n) {
+    for (let i = 0; i < n; i++) {
+        newDot = [randomInt(0, canvas.width), randomInt(0, canvas.height)]
+        dots.push(newDot)
+        console.log(dots)
+    }
 }
 
 // Adjusts the canvas size according to window size
@@ -15,8 +19,10 @@ function resizeCanvas() {
     canvas.width = window.innerWidth
 }
 
-function draw() {
-    ctx.fillRect(dot[0],dot[1],3,3)
+function drawDots() {
+    dots.forEach( dot => {
+        ctx.fillRect(dot[0], dot[1], 3, 3)
+    })
 }
 
 function move() {
@@ -26,9 +32,16 @@ function move() {
     draw(ctx)
 }
 
+function randomInt(min, max) {
+    return min + Math.floor((max - min) * Math.random());
+}
 
-// Resizing canvas on window load
-window.addEventListener("load", resizeCanvas)
+function main() {
+    createDots(10)
+    drawDots()
+    // setInterval(move, 50)
+}
 
 // Executes main function
+resizeCanvas()
 main()
