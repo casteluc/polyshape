@@ -144,6 +144,14 @@ function decDistance() {
     }
 }
 
+function reset() {
+    minDistance = 300
+    speed = 3
+
+    dots = []
+    createDots(15)
+}
+
 export {
     createDots,
     drawDots,
@@ -155,5 +163,6 @@ export {
     decSpeed,
     incDistance,
     decDistance,
+    reset
 }
 
