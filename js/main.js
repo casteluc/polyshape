@@ -9,15 +9,15 @@ document.getElementById("incSpeed").addEventListener("click", engine.incSpeed)
 document.getElementById("decSpeed").addEventListener("click", engine.decSpeed)
 // Adjusts the canvas size according to window size
 function resizeCanvas() {
-    canvas.height = window.innerHeight - 4
-    canvas.width = window.innerWidth - 4
+    canvas.height = window.innerHeight - 50
+    canvas.width = window.innerWidth - 5
 }
 
 function timeLoop() {
-    engine.moveDots()
-    engine.checkCollision()
     engine.drawDots()
     engine.drawLines(distance)
+    engine.moveDots()
+    engine.checkCollision()
 }
 
 // Declaring the main function

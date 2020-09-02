@@ -7,6 +7,7 @@ const ctx = canvas.getContext("2d")
 // Initializing the dots list
 var dots = []
 var speed = 3
+var minDistance = 300
 
 // Creates all the inital dots that will be rendered on canvas
 function createDots(n) {
@@ -34,7 +35,7 @@ function addDot(e) {
     let newDot = {
         pos: {
             x: e.pageX,
-            y: e.pageY
+            y: e.pageY - 50
         },
 
         speed: {
@@ -58,7 +59,7 @@ function drawDots() {
 }
 
 // Draws lines connecting the dots on the canvas according to the given distance
-function drawLines(minDistance) {
+function drawLines() {
     dots.forEach( dot1 => {
         dots.forEach( dot2 => {
             let xDistance = Math.abs(dot1.pos.x - dot2.pos.x)
