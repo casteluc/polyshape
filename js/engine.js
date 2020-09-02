@@ -6,6 +6,7 @@ const ctx = canvas.getContext("2d")
 
 // Initializing the dots list
 var dots = []
+var speed = 3
 
 // Creates all the inital dots that will be rendered on canvas
 function createDots(n) {
@@ -17,8 +18,8 @@ function createDots(n) {
             },
 
             speed: {
-                x: randomSpeed(),
-                y: randomSpeed()
+                x: randomSpeed(speed),
+                y: randomSpeed(speed)
             },
 
             color: randomColor()
@@ -37,8 +38,8 @@ function addDot(e) {
         },
 
         speed: {
-            x: randomSpeed(),
-            y: randomSpeed()
+            x: randomSpeed(speed),
+            y: randomSpeed(speed)
         },
 
         color: randomColor()
@@ -83,7 +84,6 @@ function moveDots() {
     })
 }
 
-
 // Checks if any dot has collided with the border
 function checkCollision() {
     dots.forEach( dot => {
@@ -95,12 +95,30 @@ function checkCollision() {
     })
 }
 
+function incSpeed() {
+    speed += 1
+    dots.forEach( dot => {
+        if (dot.speed.x > 0) {
+            dot.speed.x += 1
+        } else {
+            dot.speed.x -= 1
+        }
+
+        if (dot.speed.y > 0) {
+            dot.speed.y += 1
+        } else {
+            dot.speed.y -= 1
+        }
+    })
+}
+
 export {
     createDots,
     drawDots,
     moveDots,
     addDot,
     drawLines,
-    checkCollision
+    checkCollision,
+    incSpeed,
 }
 

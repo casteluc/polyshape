@@ -16,13 +16,13 @@ function randomInt(min, max) {
 }
 
 // Function that returns a random number between -3 and 3 and != to 0 to use as dot speed
-function randomSpeed() {
-    let speed = randomInt(-3, 3)
+function randomSpeed(s) {
+    let speed = randomInt(s * -1, s)
     while (true) {
         if (speed !== 0) {
             return speed
         } else {
-            speed = randomInt(-3, 3)
+            speed = randomInt(s * -1, s)
         }
     }
 }
