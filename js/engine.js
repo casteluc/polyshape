@@ -23,11 +23,29 @@ function createDots(n) {
 
             color: randomColor()
         }
-
+        
         dots.push(newDot)
     }
 }
 
+// Adds a new dot on the canvas
+function addDot(e) {
+    let newDot = {
+        pos: {
+            x: e.pageX,
+            y: e.pageY
+        },
+
+        speed: {
+            x: randomSpeed(),
+            y: randomSpeed()
+        },
+
+        color: randomColor()
+    }
+
+    dots.push(newDot)
+}
 
 // Renders all the dots on the canvas
 function drawDots() {
@@ -65,22 +83,6 @@ function moveDots() {
     })
 }
 
-// Adds a new dot on the canvas
-function addDot(e) {
-    let newDot = {
-        pos: {
-            x: e.pageX,
-            y: e.pageY
-        },
-
-        speed: {
-            x: randomSpeed(),
-            y: randomSpeed()
-        }
-    }
-
-    dots.push(newDot)
-}
 
 // Checks if any dot has collided with the border
 function checkCollision() {
