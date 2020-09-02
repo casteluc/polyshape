@@ -73,11 +73,17 @@ function drawLines() {
             // Checks if 2 dots distance is smaller than the minDistance
             // If so, draws a line between the 2 dots
             if (xDistance <= minDistance && yDistance <= minDistance) {
+                ctx.shadowOffsetX = 3;
+                ctx.shadowOffsetY = 3;
+                ctx.shadowBlur    = 7;
+                ctx.shadowColor   = dot1.color
+
                 ctx.beginPath()
                 ctx.moveTo(dot1.pos.x + 1, dot1.pos.y + 1)
                 ctx.lineTo(dot2.pos.x + 1, dot2.pos.y + 1)
                 ctx.strokeStyle = dot1.color
                 ctx.stroke()
+
             }
         })
     })
