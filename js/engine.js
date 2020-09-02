@@ -112,6 +112,25 @@ function incSpeed() {
     })
 }
 
+function decSpeed() {
+    if (speed > 1) {
+        speed -= 1
+        dots.forEach( dot => {
+            if (dot.speed.x > 0) {
+                dot.speed.x -= 1
+            } else {
+                dot.speed.x += 1
+            }
+    
+            if (dot.speed.y > 0) {
+                dot.speed.y -= 1
+            } else {
+                dot.speed.y += 1
+            }
+        })
+    }
+}
+
 export {
     createDots,
     drawDots,
@@ -120,5 +139,6 @@ export {
     drawLines,
     checkCollision,
     incSpeed,
+    decSpeed,
 }
 
