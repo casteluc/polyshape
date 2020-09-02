@@ -8,11 +8,8 @@ window.addEventListener("load", () => {
     resizeCanvas()
 })
 
-// Adjusting canvas on window resize
-window.addEventListener("resize", resizeCanvas)
-
 // Adjusts the canvas size according to window size
-const resizeCanvas = () => {
+function resizeCanvas() {
     canvas.height = window.innerHeight
     canvas.width = window.innerWidth
 }
