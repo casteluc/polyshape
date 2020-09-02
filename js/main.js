@@ -18,7 +18,7 @@ function timeLoop() {
 // Declaring the main function
 function main() {
     resizeCanvas()
-    engine.createDots(10)
+    engine.createDots(15)
     engine.drawDots()
     setInterval(timeLoop, 25)
 

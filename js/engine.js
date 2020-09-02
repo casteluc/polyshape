@@ -1,4 +1,4 @@
-import { randomInt, randomSpeed } from './utils.js'
+import { randomInt, randomSpeed, randomColor } from './utils.js'
 
 // Getting the canvas and context elements
 const canvas = document.getElementById("canvas")
@@ -19,7 +19,9 @@ function createDots(n) {
             speed: {
                 x: randomSpeed(),
                 y: randomSpeed()
-            }
+            },
+
+            color: randomColor()
         }
 
         dots.push(newDot)
@@ -31,10 +33,12 @@ function createDots(n) {
 function drawDots() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     dots.forEach( dot => {
+        ctx.fillStyle = dot.color
         ctx.fillRect(dot.pos.x, dot.pos.y, 3, 3)
     })
 }
 
+// Draws lines connecting the dots on the canvas according to the given distance
 function drawLines(minDistance) {
     dots.forEach( dot1 => {
         dots.forEach( dot2 => {
@@ -45,6 +49,7 @@ function drawLines(minDistance) {
                 ctx.beginPath()
                 ctx.moveTo(dot1.pos.x + 1, dot1.pos.y + 1)
                 ctx.lineTo(dot2.pos.x + 1, dot2.pos.y + 1)
+                ctx.strokeStyle = dot1.color
                 ctx.stroke()
             }
         })
@@ -80,9 +85,9 @@ function addDot(e) {
 // Checks if any dot has collided with the border
 function checkCollision() {
     dots.forEach( dot => {
-        if (dot.pos.x >= canvas.width - 2 || dot.pos.x <= 0) {
+        if (dot.pos.x >= canvas.width - 1 || dot.pos.x <= 0) {
             dot.speed.x = dot.speed.x * -1
-        } else if (dot.pos.y >= canvas.height - 2 || dot.pos.y <= 0) {
+        } else if (dot.pos.y >= canvas.height - 1 || dot.pos.y <= 0) {
             dot.speed.y = dot.speed.y * -1
         }
     })
