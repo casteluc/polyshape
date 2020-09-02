@@ -132,6 +132,18 @@ function decSpeed() {
     }
 }
 
+function incDistance() {
+    if (minDistance < 1200) {
+        minDistance += 10
+    }
+}
+
+function decDistance() {
+    if (minDistance > 10) {
+        minDistance -= 10
+    }
+}
+
 export {
     createDots,
     drawDots,
@@ -141,5 +153,7 @@ export {
     checkCollision,
     incSpeed,
     decSpeed,
+    incDistance,
+    decDistance,
 }
 

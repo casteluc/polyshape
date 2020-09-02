@@ -7,6 +7,9 @@ var distance = 300
 
 document.getElementById("incSpeed").addEventListener("click", engine.incSpeed)
 document.getElementById("decSpeed").addEventListener("click", engine.decSpeed)
+document.getElementById("incDistance").addEventListener("click", engine.incDistance)
+document.getElementById("decDistance").addEventListener("click", engine.decDistance)
+
 // Adjusts the canvas size according to window size
 function resizeCanvas() {
     canvas.height = window.innerHeight - 50
