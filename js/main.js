@@ -13,7 +13,7 @@ document.getElementById("reset").addEventListener("click", engine.reset)
 
 // Adjusts the canvas size according to window size
 function resizeCanvas() {
-    canvas.height = window.innerHeight - 50
+    canvas.height = window.innerHeight - 5
     canvas.width = window.innerWidth - 5
 }
 
