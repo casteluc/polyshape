@@ -52,7 +52,7 @@ function checkCollision() {
             dot.speed.x = dot.speed.x * -1
         } else if (dot.pos.y >= canvas.height - 2 || dot.pos.y <= 0) {
             dot.speed.y = dot.speed.y * -1
-        }
+        }''
     })
 }
 

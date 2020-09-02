@@ -4,16 +4,16 @@ const canvas = document.getElementById("canvas")
 
 // Adjusts the canvas size according to window size
 function resizeCanvas() {
-    canvas.height = window.innerHeight
-    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight - 5
+    canvas.width = window.innerWidth - 5
 }
 
 // Declaring the main function
 function main() {
     resizeCanvas()
-    engine.createDots(100)
+    engine.createDots(10)
     engine.drawDots()
-    setInterval(engine.moveDots, 50)
+    setInterval(engine.moveDots, 10)
 }
 
 // Executes main function
