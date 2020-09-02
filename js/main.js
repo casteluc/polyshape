@@ -13,8 +13,10 @@ function main() {
     resizeCanvas()
     engine.createDots(10)
     engine.drawDots()
-    setInterval(engine.moveDots, 10)
+    setInterval(engine.moveDots, 25)
+    canvas.addEventListener("click", engine.addDot)
 }
+
 
 // Executes main function
 main()

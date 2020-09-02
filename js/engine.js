@@ -46,6 +46,22 @@ function moveDots() {
     drawDots()
 }
 
+function addDot(e) {
+    let newDot = {
+        pos: {
+            x: e.pageX,
+            y: e.pageY
+        },
+
+        speed: {
+            x: randomSpeed(),
+            y: randomSpeed()
+        }
+    }
+
+    dots.push(newDot)
+}
+
 function checkCollision() {
     dots.forEach( dot => {
         if (dot.pos.x >= canvas.width - 2 || dot.pos.x <= 0) {
@@ -59,6 +75,7 @@ function checkCollision() {
 export {
     createDots,
     drawDots,
-    moveDots
+    moveDots,
+    addDot,
 }
 
