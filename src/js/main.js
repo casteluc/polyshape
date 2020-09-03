@@ -3,7 +3,7 @@ import * as engine from './engine.js'
 // Getting the canvas element
 const canvas = document.getElementById("canvas")
 
-// Setting initital values for distance and speed
+// Setting initital value for distance
 var distance = 300
 
 // Adds events to the buttons
